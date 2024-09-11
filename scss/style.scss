@@ -1,0 +1,57 @@
+$aqua:aqua;
+body {
+    background-color: #777171;
+}
+
+@mixin bg-color ( $le:0, $ri:0, $b_l:0, $b_r:0) {
+    transition: 0.3s;
+    font-family: sans-serif;
+    width: 500px;
+    cursor: pointer;
+    height: 500px;
+    background-color: #ffffff86;
+    border-top-left-radius: $le;
+    border-top-right-radius: $ri;
+    border-bottom-left-radius: $b_l;
+    border-bottom-right-radius: $b_r;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid $aqua;
+    user-select: none;
+    &:hover {
+        background-color: #514c4c8a;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #433e3e;
+    border-radius: 50%;
+    border: 5px solid $aqua;
+    cursor: help;
+    gap: -300px;
+}
+
+.block {
+    @include bg-color($le: 100px, $ri: 100px, $b_l: 110px, $b_r: 100px);
+    p {
+        user-select: none;
+        color: $aqua;
+        font-size: 16px;
+    }
+}
+
+.card {
+    @include bg-color($le: 300px, $ri: 110px, $b_l: 90px, $b_r: 80px);
+    @extend .block;
+}
